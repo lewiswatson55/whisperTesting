@@ -22,7 +22,7 @@ stream = p.open(format=pyaudio.paFloat32,
 stream.start_stream()
 
 while stream.is_active():
-    stream.read(1024)
+    print("Say something!")
     time.sleep(20)
     stream.stop_stream()
     print("Stream is stopped")
