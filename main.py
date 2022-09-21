@@ -1,9 +1,9 @@
 import whisper
 
-model = whisper.load_model("base")
+model = whisper.load_model("tiny")
 
 # load audio and pad/trim it to fit 30 seconds
-audio = whisper.load_audio("output.wav")
+audio = whisper.load_audio("audio.mp3")
 audio = whisper.pad_or_trim(audio)
 
 
@@ -16,6 +16,7 @@ print(f"Detected language: {max(probs, key=probs.get)}")
 
 # decode the audio
 options = whisper.DecodingOptions()
+pause = input("Press enter to continue")
 result = whisper.decode(model, mel, options)
 
 # print the recognized text

@@ -12,8 +12,9 @@ decodeoptions = whisper.DecodingOptions(task="translate")
 
 def transcribe_audio(uuid):
     print("Transcribing audio")
-    result = model.transcribe(f"raw_audio/{uuid}.wav", decodeoptions)
+    result = model.transcribe(f"raw_audio/{uuid}.wav")
     print(result["text"])
+    delete_audio(uuid)
 
 samplerate = 44100  # Hertz
 duration = 5  # seconds
